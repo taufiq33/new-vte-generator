@@ -10,6 +10,7 @@ beberapa _repeated task_ yang saya maksud :
 3. Nama File dari excel voucher harus *semantik* dalam artian mewakili voucher , jumlah dan waktu file dibuat , sehingga mudah dalam mencarinya kembali.(Done versi 0.1)
 4. Software harus bisa dijalankan dalam format binnary (executable) , tak perlu masuk prompt dan menjalankan 'python namaapp.py' . (done versi 0.2)
 5. Karena ada instalasi Software Server Pulsa Baru di kantor, dan menuntut format template yang berbeda. (done versi 0.3)
+6. Fitur baru, 'report'. Gunanya untuk membuat 1 report file yang isinya beberapa file voucher. (done versi 0.4)
 
 versi 0.1 dan versi 0.2 ada di repository lama --> [disini.](https://github.com/taufiq33/vte-generator)
 
