@@ -117,6 +117,7 @@ dmypy.json
 ## virtualenvironment folder
 venv/
 
-
+## file tertentu yang tidak ingin saya ikutkan
+eksperimen-fitur/
 
 # End of https://www.gitignore.io/api/python,visualstudiocode
