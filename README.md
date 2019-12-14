@@ -6,7 +6,7 @@ Ini software sederhana, fungsi nya hanya untuk membantu menyelesaikan _repeated 
 
 Software ini berbasis Python 3 dan untuk database nya memakai SQLite3. Sementara library GUInya saya memakai Tkinter.
 
-Software ini sudah masuk versi 0.3
+Software ini sudah masuk versi 0.4
 
 beberapa _repeated task_ yang saya maksud :
 1. Tiap ingin input kode voucher gosok ke Software Server Pulsa, harus membuat file bertipe excel dengan template tertentu. Dan template nya ini disesuaikan dengan nama voucher, kode produknya, jumlah dsb. (Done versi 0.1)
