@@ -1,3 +1,7 @@
+# VTE (Voucher to Excel) generator
+
+![Skrinsot Aplikasi](screenshot.png)
+
 Ini software sederhana, fungsi nya hanya untuk membantu menyelesaikan _repeated task_ yang kadang menyita banyak waktu dan konsentrasi. Kedepannya ini bisa jadi portofolio saya mungkin (?) haha
 
 Software ini berbasis Python 3 dan untuk database nya memakai SQLite3. Sementara library GUInya saya memakai Tkinter.
