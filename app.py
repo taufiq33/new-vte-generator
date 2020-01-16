@@ -73,7 +73,7 @@ class ExcelFile():
             if int(menitanInFile) < 10 :
                 menitanInFile = '0' + str(menitanInFile)
             dataExcelVoucher.append(
-                [self.kodeproduk, '', self.deskripsi, '1',
+                [self.kodeproduk, '', "{} {} {}/{}".format(self.deskripsi, self.tanggalwaktuFile[-4:], x, self.jumlah), '1',
                 str(tanggalwaktuInFile) + str(menitanInFile) + ':' + str(detikanInFile),
                 self.kadaluarsa]
             )
@@ -122,7 +122,7 @@ class ExcelFile():
 
         format1 = self.ObjExcelFile.add_format({'bg_color':  '#E60000','font_color': '#000000'})
 
-        self.worksheet.conditional_format('B1:B200', {'type':'duplicate','format': format1}) ## otomatis deteksi duplikasi data
+        self.worksheet.conditional_format('B1:B4000', {'type':'duplicate','format': format1}) ## otomatis deteksi duplikasi data
 
         self.ObjExcelFile.close()
         return True;
