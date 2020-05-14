@@ -185,22 +185,31 @@ if __name__ == '__main__':
                     onvalue=1, offvalue=0, height=5,
                     width=20)
    c3.pack(side=LEFT, padx=5, pady=5)
-   b1 = Button(root, text='Pengaturan',
-               command=(lambda e=ents: pengaturan_event(e)))
-   b1.pack(side=LEFT, padx=5, pady=5)
-   btnReport = Button(root, text="Buat Report",
-                      command=(lambda e=ents: report_event(e))
-                      )
-   btnReport.pack(side=LEFT, padx=5, pady=5)
+#    b1 = Button(root, text='Pengaturan',
+#                command=(lambda e=ents: pengaturan_event(e)))
+#    b1.pack(side=LEFT, padx=5, pady=5)
+#    btnReport = Button(root, text="Buat Report",
+#                       command=(lambda e=ents: report_event(e))
+#                       )
+#    btnReport.pack(side=LEFT, padx=5, pady=5)
    b2 = Button(root, text='Generate File',
                command=(lambda e=ents: generate_file_event(e)))
    b2.pack(side=LEFT, padx=5, pady=5)
-   b3 = Button(root, text='Quit', command=root.quit)
-   b3.pack(side=LEFT, padx=5, pady=5)
+#    b3 = Button(root, text='Quit', command=root.quit)
+#    b3.pack(side=LEFT, padx=5, pady=5)
 
    menubar = Menu(root)
    optionsmenu = Menu(menubar, tearoff = 0)
+   optionsmenu.add_separator()
+   menubar.add_cascade(label="Options", menu = optionsmenu)
    optionsmenu.add_command(label="Preferences", command=(lambda e=ents: pengaturan_event(e)))
-   menubar.add_cascade(label="Options", menu = optionsmenu(e))
 
+   reportmenu = Menu(menubar, tearoff=0)
+   reportmenu.add_separator()
+   menubar.add_cascade(label="Report", menu = reportmenu)
+   reportmenu.add_command(label="Create Report", command=(lambda e=ents: report_event(e)))
+   
+   
+   
+   root.config(menu = menubar)
    root.mainloop()
