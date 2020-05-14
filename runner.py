@@ -122,6 +122,10 @@ def pilih_files_event(e):
     e.insert(INSERT, "\n".join(filez))
     e.state = "DISABLED"
 
+def about_event(e):
+    isi_pesan = """Voucher to Excel Generator v0.5\n\nSoftware sederhana untuk membantu proses input voucher ke SW Pulsa.\n\nPembuat : Taufiq Hidayat\nRepo github : github.com/taufiq33/new-vte-generator"""
+    return tkinter.messagebox.showinfo("About this software",isi_pesan.strip())
+
 
 def generate_file_event(entries):
     kd = entries['Kode voucher'].get()
@@ -209,7 +213,10 @@ if __name__ == '__main__':
    menubar.add_cascade(label="Report", menu = reportmenu)
    reportmenu.add_command(label="Create Report", command=(lambda e=ents: report_event(e)))
    
-   
+   helpmenu = Menu(menubar, tearoff=0)
+   helpmenu.add_separator()
+   menubar.add_cascade(label="Help", menu = helpmenu)
+   helpmenu.add_command(label="About", command=(lambda e=ents: about_event(e)))
    
    root.config(menu = menubar)
    root.mainloop()
