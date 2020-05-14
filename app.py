@@ -26,7 +26,7 @@ def updateConfig(kadaluarsa, folder):
 class ExcelFile():
     """Kelas utama file excel yang akan di generate"""
 
-    def __init__(self, kodeproduk, deskripsi, jumlah, retail):
+    def __init__(self, kodeproduk, deskripsi, jumlah, retail, hint2, hint3):
         if ',' in kodeproduk :
             pecah = kodeproduk.upper().split(',')
             self.kodeproduk = pecah[0]
@@ -37,12 +37,15 @@ class ExcelFile():
         self.deskripsi = deskripsi.upper()
         self.jumlah = jumlah
         self.retail = retail
+        self.hint2 = hint2
+        self.hint3 = hint3
         self.tanggalwaktu = time.strftime('%m/%d/%Y %H:%M', time.localtime(time.time()))
         self.tanggalwaktuFile = time.strftime('%d-%B-%Y %H%M', time.localtime(time.time()))
         self.kadaluarsa = getKadaluarsaConfig()
         self.folder = getPathConfig()
         self.ObjExcelFile = xlsxwriter.Workbook(self.folder + self.getNamaFile())
         self.worksheet = self.ObjExcelFile.add_worksheet()
+        print("hint2 -> {} | hint3 -> {}".format(self.hint2, self.hint3))
 
     def getNamaFile(self) :
         namafile = "%s %s %s pcs.xlsx" % (self.kodeprodukfile, self.tanggalwaktuFile, self.jumlah)
@@ -92,18 +95,47 @@ class ExcelFile():
         col = 0
 
         formattext = self.ObjExcelFile.add_format()
+        formatkuning = self.ObjExcelFile.add_format({'bg_color':'#FFFF00'})
+        formatkhusus = self.ObjExcelFile.add_format({'bg_color':'#f0f0eb','font_color': '#000000'})
         formattext.set_num_format('@') # == text in excel
+        formatkuning.set_num_format('@') # == text in excel
+        formatkhusus.set_num_format('@') # == text in excel
+        formatkuning.set_bold(bold=True)
 
+        x = 1
         # Iterate over the data and write it out row by row.
         if self.retail is False :
             for kp,kv,desk,kode,tgl,kada in (arrayData):
                 self.worksheet.write(row, col,kp)
-                self.worksheet.write(row, col + 1,kv,formattext)
+
+                if self.hint2 :
+                    if x % 2 == 0 :
+                        if x % 50 == 0 :
+                            self.worksheet.write(row, col + 1,kv,formatkuning)
+                        else :
+                            self.worksheet.write(row, col + 1,kv,formatkhusus)
+                    else :
+                        self.worksheet.write(row, col + 1,kv,formattext)
+                elif self.hint3 :
+                    if x % 3 == 0 :
+                        if x % 30 == 0 :
+                            self.worksheet.write(row, col + 1,kv,formatkuning)
+                        else :
+                            self.worksheet.write(row, col + 1,kv,formatkhusus)
+                    else :
+                        self.worksheet.write(row, col + 1,kv,formattext)
+                else :
+                    if x % 50 == 0 :
+                        self.worksheet.write(row, col + 1,kv,formatkuning)
+                    else :
+                        self.worksheet.write(row, col + 1,kv,formattext)
+
                 self.worksheet.write(row, col + 2,desk)
                 self.worksheet.write(row, col + 3,kode)
                 self.worksheet.write(row, col + 4,tgl)
                 self.worksheet.write(row, col + 5,kada)
                 row += 1
+                x += 1
 
             self.worksheet.set_column('B:B', 25) ## set lebar kolom
             self.worksheet.set_column('E:E', 25)
@@ -111,10 +143,33 @@ class ExcelFile():
         else :
             for kp,kv,desk,kode,tgl,kada in (arrayData):
                 self.worksheet.write(row, col,kp)
-                self.worksheet.write(row, col + 1,kv,formattext)
+                
+                if self.hint2 :
+                    if x % 2 == 0 :
+                        if x % 50 == 0 :
+                            self.worksheet.write(row, col + 1,kv,formatkuning)
+                        else :
+                            self.worksheet.write(row, col + 1,kv,formatkhusus)
+                    else :
+                        self.worksheet.write(row, col + 1,kv,formattext)
+                elif self.hint3 :
+                    if x % 3 == 0 :
+                        if x % 30 == 0 :
+                            self.worksheet.write(row, col + 1,kv,formatkuning)
+                        else :
+                            self.worksheet.write(row, col + 1,kv,formatkhusus)
+                    else :
+                        self.worksheet.write(row, col + 1,kv,formattext)
+                else :
+                    if x % 50 == 0 :
+                        self.worksheet.write(row, col + 1,kv,formatkuning)
+                    else :
+                        self.worksheet.write(row, col + 1,kv,formattext)
+
                 self.worksheet.write(row, col + 2,desk)
                 self.worksheet.write(row, col + 3,kada)
                 row += 1
+                x += 1
 
             self.worksheet.set_column('B:B', 25) ## set lebar kolom
             self.worksheet.set_column('C:C', 25)

@@ -128,6 +128,8 @@ def generate_file_event(entries):
     desk = entries['Deskripsi'].get()
     jumlah = entries['Jumlah'].get()
     retail = False
+    hint2 = False
+    hint3 = False
 
     if kd is "" or desk is "" or jumlah is "":
         return tkinter.messagebox.showerror("Gagal", "jangan ada yang kosong ya om")
@@ -135,8 +137,12 @@ def generate_file_event(entries):
     if CheckVar1.get() == 1:
         kd += ",OTOMAX RETAIL"
         retail = True
+    if CheckVar2.get() == 1:
+        hint2 = True
+    if CheckVar3.get() == 1:
+        hint3 = True
     # print(kd, desk, jumlah)
-    fileExcel = app.ExcelFile(kd, desk, jumlah, retail)
+    fileExcel = app.ExcelFile(kd, desk, jumlah, retail, hint2, hint3)
     if fileExcel.generateExcelFile():
         entries['Kode voucher'].delete(0, 'end')
         entries['Deskripsi'].delete(0, 'end')
@@ -165,10 +171,20 @@ if __name__ == '__main__':
    ents = makeform(root, fields)
    root.bind('<Return>', (lambda event, e=ents: fetch(e)))
    CheckVar1 = IntVar()
-   c1 = Checkbutton(root, text="Otomax Retail ?", variable=CheckVar1,
+   c1 = Checkbutton(root, text="Retail ?", variable=CheckVar1,
                     onvalue=1, offvalue=0, height=5,
                     width=20)
    c1.pack(side=LEFT, padx=5, pady=5)
+   CheckVar2 = IntVar()
+   c2 = Checkbutton(root, text="Hint kelipatan2?", variable=CheckVar2,
+                    onvalue=1, offvalue=0, height=5,
+                    width=20)
+   c2.pack(side=LEFT, padx=5, pady=5)
+   CheckVar3 = IntVar()
+   c3 = Checkbutton(root, text="Hint kelipatan3?", variable=CheckVar3,
+                    onvalue=1, offvalue=0, height=5,
+                    width=20)
+   c3.pack(side=LEFT, padx=5, pady=5)
    b1 = Button(root, text='Pengaturan',
                command=(lambda e=ents: pengaturan_event(e)))
    b1.pack(side=LEFT, padx=5, pady=5)
