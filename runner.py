@@ -197,4 +197,10 @@ if __name__ == '__main__':
    b2.pack(side=LEFT, padx=5, pady=5)
    b3 = Button(root, text='Quit', command=root.quit)
    b3.pack(side=LEFT, padx=5, pady=5)
+
+   menubar = Menu(root)
+   optionsmenu = Menu(menubar, tearoff = 0)
+   optionsmenu.add_command(label="Preferences", command=(lambda e=ents: pengaturan_event(e)))
+   menubar.add_cascade(label="Options", menu = optionsmenu(e))
+
    root.mainloop()
