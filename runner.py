@@ -123,7 +123,7 @@ def pilih_files_event(e):
     e.state = "DISABLED"
 
 def about_event(e):
-    isi_pesan = """Voucher to Excel Generator v0.5\n\nSoftware sederhana untuk membantu proses input voucher ke SW Pulsa.\n\nPembuat : Taufiq Hidayat\nRepo github : github.com/taufiq33/new-vte-generator"""
+    isi_pesan = """Voucher to Excel Generator v0.6\n\nSoftware sederhana untuk membantu proses input voucher ke SW Pulsa.\n\nPembuat : Taufiq Hidayat\nRepo github : github.com/taufiq33/new-vte-generator"""
     return tkinter.messagebox.showinfo("About this software",isi_pesan.strip())
 
 
@@ -196,7 +196,7 @@ if __name__ == '__main__':
 #                       command=(lambda e=ents: report_event(e))
 #                       )
 #    btnReport.pack(side=LEFT, padx=5, pady=5)
-   b2 = Button(root, text='Generate File',
+   b2 = Button(root, text='Generate File',bg='green', fg='white', font=('helvetica', 12, 'bold'),
                command=(lambda e=ents: generate_file_event(e)))
    b2.pack(side=LEFT, padx=5, pady=5)
 #    b3 = Button(root, text='Quit', command=root.quit)

@@ -6,7 +6,7 @@ Ini software sederhana, fungsi nya hanya untuk membantu menyelesaikan _repeated 
 
 Software ini berbasis Python 3 dan untuk database nya memakai SQLite3. Sementara library GUInya saya memakai Tkinter.
 
-Software ini sudah masuk versi 0.5
+Software ini sudah masuk versi 0.6
 
 beberapa _repeated task_ yang saya maksud :
 1. Tiap ingin input kode voucher gosok ke Software Server Pulsa, harus membuat file bertipe excel dengan template tertentu. Dan template nya ini disesuaikan dengan nama voucher, kode produknya, jumlah dsb. (Done versi 0.1)
@@ -16,6 +16,7 @@ beberapa _repeated task_ yang saya maksud :
 5. Karena ada instalasi Software Server Pulsa Baru di kantor, dan menuntut format template yang berbeda. (done versi 0.3)
 6. Fitur baru, 'report'. Gunanya untuk membuat 1 report file yang isinya beberapa file voucher. (done versi 0.4)
 7. Fitur baru, kustom hint background tertentu. Penambahan menubar untuk tampilan yang lebih bersih. (done versi 0.5)
+8. Penambahan urutan alphabet di keterangan, mempermudah pencarian jika ada kode salah dsb.
 
 versi 0.1 dan versi 0.2 ada di repository lama --> [disini.](https://github.com/taufiq33/vte-generator)
 
