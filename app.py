@@ -4,6 +4,7 @@ import xlsxwriter
 import time
 import datetime
 import sqlite3
+import string
 
 dbObject = sqlite3.connect('config-db.db')
 dbCursor = dbObject.cursor()
@@ -63,7 +64,15 @@ class ExcelFile():
         menitan = 0
         detikanInFile = 0
         menitanInFile = 0
+        alphabet_list = list(string.ascii_uppercase)
+        alphabet_counter = 0
         while x <= int(self.jumlah) :
+            if x <= 50 :
+                alphabet_string = "{}-{}".format(alphabet_list[alphabet_counter], x)
+            else :
+                alphabet_string = "{}-{}".format(alphabet_list[alphabet_counter], x - (alphabet_counter * 50))
+            if x % 50 == 0 :
+                alphabet_counter = alphabet_counter + 1
             if detikan == 60 :
                 detikanInFile = 0
                 detikan = 0
@@ -76,7 +85,7 @@ class ExcelFile():
             if int(menitanInFile) < 10 :
                 menitanInFile = '0' + str(menitanInFile)
             dataExcelVoucher.append(
-                [self.kodeproduk, '', "{} {} {}/{}".format(self.deskripsi, self.tanggalwaktuFile[-4:], x, self.jumlah), '1',
+                [self.kodeproduk, '', "{} {} urutan {} {}/{}".format(self.deskripsi, self.tanggalwaktuFile[-4:], alphabet_string, x, self.jumlah), '1',
                 str(tanggalwaktuInFile) + str(menitanInFile) + ':' + str(detikanInFile),
                 self.kadaluarsa]
             )
@@ -138,6 +147,7 @@ class ExcelFile():
                 x += 1
 
             self.worksheet.set_column('B:B', 25) ## set lebar kolom
+            self.worksheet.set_column('C:C', 35)
             self.worksheet.set_column('E:E', 25)
             self.worksheet.set_column('F:F', 25)
         else :
