@@ -85,7 +85,7 @@ class ExcelFile():
             if int(menitanInFile) < 10 :
                 menitanInFile = '0' + str(menitanInFile)
             dataExcelVoucher.append(
-                [self.kodeproduk, '', "{} {} urutan {} {}/{}".format(self.deskripsi, self.tanggalwaktuFile[-4:], alphabet_string, x, self.jumlah), '1',
+                [self.kodeproduk, '', "{} {} {}/{}".format(self.deskripsi, self.tanggalwaktuFile[-4:], alphabet_string, self.jumlah), '1',
                 str(tanggalwaktuInFile) + str(menitanInFile) + ':' + str(detikanInFile),
                 self.kadaluarsa]
             )
