@@ -16,7 +16,8 @@ beberapa _repeated task_ yang saya maksud :
 5. Karena ada instalasi Software Server Pulsa Baru di kantor, dan menuntut format template yang berbeda. (done versi 0.3)
 6. Fitur baru, 'report'. Gunanya untuk membuat 1 report file yang isinya beberapa file voucher. (done versi 0.4)
 7. Fitur baru, kustom hint background tertentu. Penambahan menubar untuk tampilan yang lebih bersih. (done versi 0.5)
-8. Penambahan urutan alphabet di keterangan, mempermudah pencarian jika ada kode salah dsb.
+8. Penambahan urutan alphabet di keterangan, mempermudah pencarian jika ada kode salah dsb. (done versi 0.6)
+9. Isi kolom keterangan di sederhanakan, penambahan status bar yang diisi settingan aktif.  (done versi 0.7)
 
 versi 0.1 dan versi 0.2 ada di repository lama --> [disini.](https://github.com/taufiq33/vte-generator)
 
