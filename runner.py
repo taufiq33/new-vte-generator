@@ -169,6 +169,9 @@ def makeform(root, fields):
 
 if __name__ == '__main__':
    root = Tk()
+   statusbarText = "Folder output : {} | Setting kadaluarsa {}".format(app.getPathConfig(), app.getKadaluarsaConfig())
+   statusbar = tkinter.Label(root, text=statusbarText, bd=1, relief=tkinter.SUNKEN, anchor=tkinter.W)
+   statusbar.pack(side=tkinter.BOTTOM, fill=tkinter.X)
    root.title("VTE - Voucher to Excel Generator")
    img = tkinter.PhotoImage(file="icon.png")
    root.tk.call('wm', 'iconphoto', root._w, img)
